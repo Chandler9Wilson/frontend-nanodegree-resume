@@ -123,6 +123,10 @@ a {
     padding-top: 50px;
 }
 
+.actual {
+    background-image: url("/images/timeline-background.svg");
+}
+
 .orange {
   background-color: #f5ae23;
 }

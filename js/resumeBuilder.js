@@ -48,7 +48,7 @@ var education = {
             "dates" : "2010-2015",
             "url" : "tamu.edu",
             "major" : "Electrical Engineering",
-            "degree" : "Electrical Engineering"
+            "degree" : "B.sc Electrical Engineering"
         },
     ],
     "onlineCourses" : [
@@ -70,17 +70,16 @@ var education = {
                 var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
                 var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
 
-                $(".education-entry:last").append(formattedSchoolName);
+                $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
                 $(".education-entry:last").append(formattedSchoolDate);
                 $(".education-entry:last").append(formattedSchoolLocation);
-                $(".education-entry:last").append(formattedSchoolDegree);
                 $(".education-entry:last").append(formattedSchoolMajor);
             }
             if(education.onlineCourses.length > 0) {
-                for(var i = 0; i < education.onlineCourses.length; i++) {
-                    $("#education").append(HTMLonlineClasses);
+                $("#education").append(HTMLonlineClasses);
 
-                    var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i]).replace("#", education.onlineCourses[i].url);
+                for(var i = 0; i < education.onlineCourses.length; i++) {
+                    var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("#", education.onlineCourses[i].url);
                     var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
                     var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].completed);
                     var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url).replace("#", education.onlineCourses[i].url);
@@ -155,6 +154,10 @@ var projects = {
             }
         }
     }
+}
+
+var timeline = {
+
 }
 
 bio.display();
