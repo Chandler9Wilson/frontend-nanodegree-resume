@@ -7,14 +7,14 @@ var bio = {
         "github" : "github.com/chandler9wilson",
         "location" : "Austin"
     },
-    "welcomeMessage" : "Hello",
+    "welcomeMessage" : "Hello I am a full time student in computer science",
     "skills" : ["web-development", "gulp", "sass"],
-    "biopic" : "images/chandler_pic.jpeg",
+    "biopic" : "images/cw_logo-medium.png",
     display: function(){
         var formattedName = HTMLheaderName.replace("%data%", bio.name);
         var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-        var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
         var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+        var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
 
         var formattedContactInfo = [];
         formattedContactInfo.push(HTMLemail.replace("%data%", bio.contacts.email));
@@ -23,8 +23,8 @@ var bio = {
 
         $("#header").prepend(formattedRole);
         $("#header").prepend(formattedName);
-        $("#header").append(formattedBioPic);
-        $("#header").append(formattedWelcomeMsg);
+        $(".subHeader").prepend(formattedBioPic);
+        $(".subHeader").prepend(formattedWelcomeMsg);
 
         for(i in formattedContactInfo) {
             $("#topContacts").append(formattedContactInfo[i]);
@@ -32,7 +32,7 @@ var bio = {
         }
 
         if(bio.skills.length > 0) {
-            $("#header").append(HTMLskillsStart);
+            $(".glance").append(HTMLskillsStart);
             for(var i = 0; i < bio.skills.length; i++) {
                 $("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
             }
@@ -40,49 +40,125 @@ var bio = {
     }
 }
 
-bio.display();
-
 var education = {
-    "schools" : {
-        "name" : "HSANA",
-        "location" : "Pflugerville",
-        "dates" : "2013-2015",
-        "url" : "hsana.org"
-    },
-    "onlineCourses" : {
-        "title" : "Front-End Nanodegree",
-        "school" : "Udacity",
-        "date" : "2016",
-        "url" : "udacity.com"
-    },
+    "schools" : [
+        {
+            "name" : "TAMU",
+            "location" : "College Station",
+            "dates" : "2010-2015",
+            "url" : "tamu.edu",
+            "major" : "Electrical Engineering",
+            "degree" : "Electrical Engineering"
+        },
+    ],
+    "onlineCourses" : [
+        {
+            "title" : "Front-End Nanodegree",
+            "school" : "Udacity",
+            "dates" : "2016",
+            "url" : "udacity.com"
+        }
+    ],
     display: function(){
+        if(education.schools.length > 0 || education.onlineCourses.length > 0) {
+            for(var i = 0; i < education.schools.length; i++) {
+                $("#education").append(HTMLschoolStart);
 
+                var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name).replace("#", education.schools[i].url);
+                var formattedSchoolDate = HTMLschoolDates.replace("%data%", education.schools[i].dates);
+                var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
+                var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
+                var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+
+                $(".education-entry:last").append(formattedSchoolName);
+                $(".education-entry:last").append(formattedSchoolDate);
+                $(".education-entry:last").append(formattedSchoolLocation);
+                $(".education-entry:last").append(formattedSchoolDegree);
+                $(".education-entry:last").append(formattedSchoolMajor);
+            }
+            if(education.onlineCourses.length > 0) {
+                for(var i = 0; i < education.onlineCourses.length; i++) {
+                    $("#education").append(HTMLonlineClasses);
+
+                    var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i]).replace("#", education.onlineCourses[i].url);
+                    var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
+                    var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].completed);
+                    var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url).replace("#", education.onlineCourses[i].url);
+
+                    $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
+                    $(".education-entry:last").append(formattedOnlineDates);
+                    $(".education-entry:last").append(formattedOnlineURL);
+                }
+            }
+        }
     }
 }
 
 var work = {
-    "jobs" : {
-        "employer" : "Harbor Freight Tools",
-        "title" : "sales associate",
-        "location" : "Austin",
-        "dates" : "2014-2015",
-        "description" : "Worked as a cashier and on the sales floor"
-    },
+    "jobs" : [
+        {
+            "employer" : "Harbor Freight Tools",
+            "title" : "sales associate",
+            "location" : "Austin",
+            "dates" : "2014-2015",
+            "description" : "Worked as a cashier and on the sales floor"
+        }
+    ],
     display: function(){
+        if(work.jobs.length > 0) {
+            $("#workExperience").append(HTMLworkStart);
 
+            for(var i = 0; i < work.jobs.length; i++) {
+                var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+                var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+                var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+                var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
+                var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+
+                $(".work-entry:last").append(formattedEmployer);
+                $(".work-entry:last").append(formattedWorkLocation);
+                $(".work-entry:last").append(formattedWorkDates);
+                $(".work-entry:last").append(formattedWorkDescription);
+            }
+        }
     }
 }
 
 var projects = {
-    "projects" : {
-        "title" : "frogger-clone",
-        "dates" : "2016",
-        "description" : "A reskinned frogger clone created in javascript",
-        "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png"
-    },
+    "projects" : [
+        {
+            "title" : "frogger-clone",
+            "dates" : "2015-2016",
+            "description" : "A reskinned frogger clone created in javascript",
+            "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png"
+        }
+    ],
     display: function(){
+        if(projects.projects.length > 0) {
+            for(var i = 0; i < projects.projects.length; i++) {
+                $("#projects").append(HTMLprojectStart);
 
+                var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title).replace("#", projects.projects[i].url);
+                var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
+                var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
+
+                $(".project-entry:last").append(formattedProjectTitle);
+                $(".project-entry:last").append(formattedProjectDates);
+                $(".project-entry:last").append(formattedProjectDescription);
+
+                /*for(img in projects.projects[i].images) {
+                    var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[img]);
+                    $(".project-entry:last").append(formattedProjectImage);
+                }
+*/
+
+            }
+        }
     }
 }
 
-
+bio.display();
+education.display();
+work.display();
+projects.display();
+// randomize all info button?
