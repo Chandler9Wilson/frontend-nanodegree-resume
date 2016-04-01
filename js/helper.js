@@ -71,6 +71,7 @@ var HTMLtimelineStart = `<div class="cd-timeline-block">` +
 var HTMLtimelineTitle = '<h2>%data%</h2>';
 var HTMLtimelineDescription = '<p>%data%</p>';
 var HTMLtimelineMore = '<a href="#" class="cd-read-more">Read more</a>'
+var HTMLtimelineDate = '<span class="cd-date">%data%</span>'
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.

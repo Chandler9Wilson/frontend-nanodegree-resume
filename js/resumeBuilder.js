@@ -131,31 +131,38 @@ var projects = {
             "description" : "A reskinned frogger clone created in javascript",
             "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
             "url" : "http://frogger.net"
+        },
+        {
+            "title" : "frogger-clone",
+            "dates" : "2015-2016",
+            "description" : "A reskinned frogger clone created in javascript",
+            "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "url" : "http://frogger.net"
+        },
+        {
+            "title" : "frogger-clone",
+            "dates" : "2015-2016",
+            "description" : "A reskinned frogger clone created in javascript",
+            "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "url" : "http://frogger.net"
+        },
+        {
+            "title" : "frogger-clone",
+            "dates" : "2015-2016",
+            "description" : "A reskinned frogger clone created in javascript",
+            "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "url" : "http://frogger.net"
+        },
+        {
+            "title" : "frogger-clone",
+            "dates" : "2015-2016",
+            "description" : "A reskinned frogger clone created in javascript",
+            "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "url" : "http://frogger.net"
         }
     ],
     display: function(){
         if(projects.projects.length > 0) {
-
-            jQuery(document).ready(function($){
-                var $timeline_block = $('.cd-timeline-block');
-
-                //hide timeline blocks which are outside the viewport
-                $timeline_block.each(function(){
-                    if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
-                        $(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
-                    }
-                });
-
-                //on scolling, show/animate timeline blocks when enter the viewport
-                $(window).on('scroll', function(){
-                    $timeline_block.each(function(){
-                        if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
-                            $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
-                        }
-                    });
-                });
-            });
-
             for(var i = 0; i < projects.projects.length; i++) {
                 $("#projects").append(HTMLprojectStart);
 
@@ -181,16 +188,37 @@ var projects = {
 var timeline = {
     display: function(){
         if(projects.projects.length > 0) {
+            jQuery(document).ready(function($){
+                var $timeline_block = $('.cd-timeline-block');
+
+                //hide timeline blocks which are outside the viewport
+                $timeline_block.each(function(){
+                    if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
+                        $(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
+                    }
+                });
+
+                //on scolling, show/animate timeline blocks when enter the viewport
+                $(window).on('scroll', function(){
+                    $timeline_block.each(function(){
+                        if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+                            $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+                        }
+                    });
+                });
+            });
             for(var i = 0; i < projects.projects.length; i++) {
                 $(".cd-container").append(HTMLtimelineStart);
 
-                var fomattedTimelineTitle = HTMLtimelineTitle.replace("%data%", projects.projects[i].title);
-                var fomattedTimelineDescription = HTMLtimelineDescription.replace("%data%", projects.projects[i].description);
-                var fomattedTimelineMore = HTMLtimelineMore.replace("#", projects.projects[i].url);
+                var formattedTimelineTitle = HTMLtimelineTitle.replace("%data%", projects.projects[i].title);
+                var formattedTimelineDescription = HTMLtimelineDescription.replace("%data%", projects.projects[i].description);
+                var formattedTimelineMore = HTMLtimelineMore.replace("#", projects.projects[i].url);
+                var formattedTimelineDate = HTMLtimelineDate.replace("%data%", projects.projects[i].dates);
 
-                $(".cd-timeline-content:last").append(fomattedTimelineTitle);
-                $(".cd-timeline-content:last").append(fomattedTimelineDescription);
-                $(".cd-timeline-content:last").append(fomattedTimelineMore);
+                $(".cd-timeline-content:last").append(formattedTimelineTitle);
+                $(".cd-timeline-content:last").append(formattedTimelineDescription);
+                $(".cd-timeline-content:last").append(formattedTimelineMore);
+                $(".cd-timeline-content:last").append(formattedTimelineDate);
             }
         }
     }
