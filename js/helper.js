@@ -58,6 +58,19 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
+/*My variables*/
+
+/*suggested concatination according to https://google.github.io/styleguide/javascriptguide.xml*/
+var HTMLtimelineStart = `<div class="cd-timeline-block">` +
+    `<div class="cd-timeline-img cd-picture">` +
+        `<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">` +
+    `</div> <!-- cd-timeline-img -->` +
+    `<div class="cd-timeline-content">` +
+    `</div> <!-- cd-timeline-content -->` +
+    `</div> <!-- cd-timeline-block -->`;
+var HTMLtimelineTitle = '<h2>%data%</h2>';
+var HTMLtimelineDescription = '<p>%data%</p>';
+var HTMLtimelineMore = '<a href="#" class="cd-read-more">Read more</a>'
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
