@@ -9,7 +9,7 @@ var bio = {
     },
     "welcomeMessage" : "Hello I am a full time student in computer science",
     "skills" : ["web-development", "gulp", "sass"],
-    "biopic" : "images/cw_logo-medium.png",
+    "biopic" : "images/CW_logo-medium.png",
     display: function(){
         var formattedName = HTMLheaderName.replace("%data%", bio.name);
         var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
