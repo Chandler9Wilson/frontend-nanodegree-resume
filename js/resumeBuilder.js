@@ -127,38 +127,38 @@ var projects = {
     "projects" : [
         {
             "title" : "Frogger Clone",
-            "dates" : "2015-2016",
+            "dates" : "April 2016",
             "description" : "A reskinned frogger clone created in javascript",
             "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
-            "url" : "http://frogger.net"
+            "url" : "https://github.com/Chandler9Wilson"
         },
         {
-            "title" : "Frogger Clone",
-            "dates" : "2015-2016",
-            "description" : "A reskinned frogger clone created in javascript",
+            "title" : "Neighborhood Map",
+            "dates" : "May 2016",
+            "description" : "A map of downtown Austin, with addtional functionality added",
             "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
-            "url" : "http://frogger.net"
+            "url" : "https://github.com/Chandler9Wilson"
         },
         {
-            "title" : "frogger-clone",
-            "dates" : "2015-2016",
-            "description" : "A reskinned frogger clone created in javascript",
+            "title" : "Health Tracker",
+            "dates" : "June 2016",
+            "description" : "A single page app, that tracks a user's calorie intake along with several other health metrics",
             "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
-            "url" : "http://frogger.net"
+            "url" : "https://github.com/Chandler9Wilson"
         },
         {
-            "title" : "frogger-clone",
-            "dates" : "2015-2016",
-            "description" : "A reskinned frogger clone created in javascript",
+            "title" : "Feed Reader Testing",
+            "dates" : "June 2016",
+            "description" : "A project to learn and better understand testing in javascript",
             "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
-            "url" : "http://frogger.net"
+            "url" : "https://github.com/Chandler9Wilson"
         },
         {
-            "title" : "frogger-clone",
-            "dates" : "2015-2016",
-            "description" : "A reskinned frogger clone created in javascript",
+            "title" : "IoT Home Temperature",
+            "dates" : "July 2016",
+            "description" : "A project to accept multiple arduino based temperature sensors and feed them into a central web server, on the MEAN stack",
             "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
-            "url" : "http://frogger.net"
+            "url" : "https://github.com/Chandler9Wilson"
         }
     ],
     display: function(){
