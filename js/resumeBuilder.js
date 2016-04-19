@@ -1,16 +1,16 @@
 var bio = {
-    "name" : "Chandler Wilson",
-    "role" : "Student",
-    "contacts" : {
-        "mobile" : "512-585-8163",
-        "email" : "chandler9wilson@gmail.com",
-        "github" : "github.com/chandler9wilson",
-        "location" : "Austin"
+    "name": "Chandler Wilson",
+    "role": "Student",
+    "contacts": {
+        "mobile": "512-585-8163",
+        "email": "chandler9wilson@gmail.com",
+        "github": "github.com/chandler9wilson",
+        "location": "Austin"
     },
-    "welcomeMessage" : "Hello I am a full time student in computer science",
-    "skills" : ["web-development", "gulp", "sass"],
-    "biopic" : "images/CW_logo-medium.png",
-    display: function(){
+    "welcomeMessage": "Hello I am a full time student in computer science",
+    "skills": ["web-development", "gulp", "sass"],
+    "biopic": "images/CW_logo-medium.png",
+    display: function() {
         var formattedName = HTMLheaderName.replace("%data%", bio.name);
         var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
         var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
@@ -26,14 +26,14 @@ var bio = {
         $(".subHeader").prepend(formattedBioPic);
         $(".subHeader").prepend(formattedWelcomeMsg);
 
-        for(i in formattedContactInfo) {
+        for (i in formattedContactInfo) {
             $("#topContacts").append(formattedContactInfo[i]);
             $("#footerContacts").append(formattedContactInfo[i]);
         }
 
-        if(bio.skills.length > 0) {
+        if (bio.skills.length > 0) {
             $(".glance").append(HTMLskillsStart);
-            for(var i = 0; i < bio.skills.length; i++) {
+            for (var i = 0; i < bio.skills.length; i++) {
                 $("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
             }
         }
@@ -41,27 +41,27 @@ var bio = {
 }
 
 var education = {
-    "schools" : [
+    "schools": [
         {
-            "name" : "TAMU",
-            "location" : "College Station",
-            "dates" : "2010-2015",
-            "url" : "tamu.edu",
-            "major" : "Electrical Engineering",
-            "degree" : "B.sc Electrical Engineering"
+            "name": "TAMU",
+            "location": "College Station",
+            "dates": "2010-2015",
+            "url": "tamu.edu",
+            "major": "Electrical Engineering",
+            "degree": "B.sc Electrical Engineering"
         },
     ],
-    "onlineCourses" : [
+    "onlineCourses": [
         {
-            "title" : "Front-End Nanodegree",
-            "school" : "Udacity",
-            "dates" : "2016",
-            "url" : "udacity.com"
+            "title": "Front-End Nanodegree",
+            "school": "Udacity",
+            "dates": "2016",
+            "url": "udacity.com"
         }
     ],
-    display: function(){
-        if(education.schools.length > 0 || education.onlineCourses.length > 0) {
-            for(var i = 0; i < education.schools.length; i++) {
+    display: function() {
+        if (education.schools.length > 0 || education.onlineCourses.length > 0) {
+            for (var i = 0; i < education.schools.length; i++) {
                 $("#education").append(HTMLschoolStart);
 
                 var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name).replace("#", education.schools[i].url);
@@ -75,10 +75,10 @@ var education = {
                 $(".education-entry:last").append(formattedSchoolLocation);
                 $(".education-entry:last").append(formattedSchoolMajor);
             }
-            if(education.onlineCourses.length > 0) {
+            if (education.onlineCourses.length > 0) {
                 $("#education").append(HTMLonlineClasses);
 
-                for(var i = 0; i < education.onlineCourses.length; i++) {
+                for (var i = 0; i < education.onlineCourses.length; i++) {
                     var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("#", education.onlineCourses[i].url);
                     var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
                     var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].completed);
@@ -94,20 +94,20 @@ var education = {
 }
 
 var work = {
-    "jobs" : [
+    "jobs": [
         {
-            "employer" : "Harbor Freight Tools",
-            "title" : "sales associate",
-            "location" : "Austin",
-            "dates" : "2014-2015",
-            "description" : "Worked as a cashier and on the sales floor"
+            "employer": "Harbor Freight Tools",
+            "title": "sales associate",
+            "location": "Austin",
+            "dates": "2014-2015",
+            "description": "Worked as a cashier and on the sales floor"
         }
     ],
-    display: function(){
-        if(work.jobs.length > 0) {
+    display: function() {
+        if (work.jobs.length > 0) {
             $("#workExperience").append(HTMLworkStart);
 
-            for(var i = 0; i < work.jobs.length; i++) {
+            for (var i = 0; i < work.jobs.length; i++) {
                 var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
                 var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
                 var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
@@ -124,46 +124,46 @@ var work = {
 }
 
 var projects = {
-    "projects" : [
+    "projects": [
         {
-            "title" : "Frogger Clone",
-            "dates" : "April 2016",
-            "description" : "A reskinned frogger clone created in javascript",
-            "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
-            "url" : "https://github.com/Chandler9Wilson"
+            "title": "Frogger Clone",
+            "dates": "April 2016",
+            "description": "A reskinned frogger clone created in javascript",
+            "images": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "url": "https://github.com/Chandler9Wilson"
         },
         {
-            "title" : "Neighborhood Map",
-            "dates" : "May 2016",
-            "description" : "A map of downtown Austin, with addtional functionality added",
-            "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
-            "url" : "https://github.com/Chandler9Wilson"
+            "title": "Neighborhood Map",
+            "dates": "May 2016",
+            "description": "A map of downtown Austin, with addtional functionality added",
+            "images": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "url": "https://github.com/Chandler9Wilson"
         },
         {
-            "title" : "Health Tracker",
-            "dates" : "June 2016",
-            "description" : "A single page app, that tracks a user's calorie intake along with several other health metrics",
-            "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
-            "url" : "https://github.com/Chandler9Wilson"
+            "title": "Health Tracker",
+            "dates": "June 2016",
+            "description": "A single page app, that tracks a user's calorie intake along with several other health metrics",
+            "images": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "url": "https://github.com/Chandler9Wilson"
         },
         {
-            "title" : "Feed Reader Testing",
-            "dates" : "June 2016",
-            "description" : "A project to learn and better understand testing in javascript",
-            "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
-            "url" : "https://github.com/Chandler9Wilson"
+            "title": "Feed Reader Testing",
+            "dates": "June 2016",
+            "description": "A project to learn and better understand testing in javascript",
+            "images": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "url": "https://github.com/Chandler9Wilson"
         },
         {
-            "title" : "IoT Home Temperature",
-            "dates" : "July 2016",
-            "description" : "A project to accept multiple arduino based temperature sensors and feed them into a central web server, on the MEAN stack",
-            "images" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
-            "url" : "https://github.com/Chandler9Wilson"
+            "title": "IoT Home Temperature",
+            "dates": "July 2016",
+            "description": "A project to accept multiple arduino based temperature sensors and feed them into a central web server, on the MEAN stack",
+            "images": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "url": "https://github.com/Chandler9Wilson"
         }
     ],
-    display: function(){
-        if(projects.projects.length > 0) {
-            for(var i = 0; i < projects.projects.length; i++) {
+    display: function() {
+        if (projects.projects.length > 0) {
+            for (var i = 0; i < projects.projects.length; i++) {
                 $("#projects").append(HTMLprojectStart);
 
                 var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title).replace("#", projects.projects[i].url);
@@ -186,8 +186,8 @@ var projects = {
 }
 
 var timeline = {
-    display: function(){
-        for(var i = 0; i < projects.projects.length; i++) {
+    display: function() {
+        for (var i = 0; i < projects.projects.length; i++) {
             $(".cd-container").append(HTMLtimelineStart);
 
             var formattedTimelineTitle = HTMLtimelineTitle.replace("%data%", projects.projects[i].title);
