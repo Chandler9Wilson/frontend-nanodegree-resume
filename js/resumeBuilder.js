@@ -44,7 +44,7 @@ var education = {
     "schools": [
         {
             "name": "TAMU",
-            "location": "College Station",
+            "location": "College Station, Texas, USA",
             "dates": "2010-2015",
             "url": "tamu.edu",
             "major": "Electrical Engineering",
@@ -76,7 +76,7 @@ var education = {
                 $(".education-entry:last").append(formattedSchoolMajor);
             }
             if (education.onlineCourses.length > 0) {
-                $("#education").append(HTMLonlineClasses);
+                $(".education-entry:last").append(HTMLonlineClasses);
 
                 for (var i = 0; i < education.onlineCourses.length; i++) {
                     var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("#", education.onlineCourses[i].url);
@@ -202,6 +202,8 @@ var timeline = {
         }
     }
 }
+
+$("#mapDiv").append(googleMap);
 
 bio.display();
 education.display();
