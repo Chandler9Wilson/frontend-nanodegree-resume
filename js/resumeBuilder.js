@@ -173,13 +173,6 @@ var projects = {
                 $(".project-entry:last").append(formattedProjectTitle);
                 $(".project-entry:last").append(formattedProjectDates);
                 $(".project-entry:last").append(formattedProjectDescription);
-
-                /*for(img in projects.projects[i].images) {
-                    var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[img]);
-                    $(".project-entry:last").append(formattedProjectImage);
-                }
-*/
-
             }
         }
     }
@@ -204,10 +197,8 @@ var timeline = {
         
         $(window).on('scroll', function() {
             $(".cd-timeline-block").each(function() {
-                //console.log($(this));
                 if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
                    $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('animated bounce');
-                   //console.log("hello");
                 }
             });
         });
@@ -221,4 +212,4 @@ education.display();
 work.display();
 projects.display();
 timeline.display();
-// randomize all info button?
+
