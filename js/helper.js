@@ -49,10 +49,10 @@ var googleMap = '<div id="map"></div>';
 /*suggested concatination https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html*/
 
 var HTMLtimelineStart = `<div class="cd-timeline-block">` +
-    `<div class="cd-timeline-img cd-picture">` +
+    `<div class="cd-timeline-img cd-picture is-hidden">` +
         `<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">` +
     `</div> <!-- cd-timeline-img -->` +
-    `<div class="cd-timeline-content">` +
+    `<div class="cd-timeline-content is-hidden">` +
     `</div> <!-- cd-timeline-content -->` +
     `</div> <!-- cd-timeline-block -->`;
 var HTMLtimelineTitle = '<h2>%data%</h2>';

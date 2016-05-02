@@ -185,6 +185,7 @@ var projects = {
     }
 }
 
+//timeline template from https://codyhouse.co/gem/vertical-timeline/
 var timeline = {
     display: function() {
         for (var i = 0; i < projects.projects.length; i++) {
@@ -203,9 +204,10 @@ var timeline = {
         
         $(window).on('scroll', function() {
             $(".cd-timeline-block").each(function() {
+                //console.log($(this));
                 if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
-                   // $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('animated infinite bounce');
-                   console.log("hello");
+                   $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('animated bounce');
+                   //console.log("hello");
                 }
             });
         });

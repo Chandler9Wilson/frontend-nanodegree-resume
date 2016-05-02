@@ -236,6 +236,10 @@ Modules - reusable parts of our design
     clear: both;
 }
 
+.is-hidden {
+    visibility: hidden;
+}
+
 /* -------------------------------- 
 
 Main components 
