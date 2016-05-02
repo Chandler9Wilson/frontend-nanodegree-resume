@@ -26,19 +26,19 @@ var bio = {
         $(".subHeader").prepend(formattedBioPic);
         $(".subHeader").prepend(formattedWelcomeMsg);
 
-        for (i in formattedContactInfo) {
+        for (var i in formattedContactInfo) {
             $("#topContacts").append(formattedContactInfo[i]);
             $("#footerContacts").append(formattedContactInfo[i]);
         }
 
         if (bio.skills.length > 0) {
             $(".glance").append(HTMLskillsStart);
-            for (var i = 0; i < bio.skills.length; i++) {
+            for (i = 0; i < bio.skills.length; i++) {
                 $("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
             }
         }
     }
-}
+};
 
 var education = {
     "schools": [
@@ -78,7 +78,7 @@ var education = {
             if (education.onlineCourses.length > 0) {
                 $(".education-entry:last").append(HTMLonlineClasses);
 
-                for (var i = 0; i < education.onlineCourses.length; i++) {
+                for (i = 0; i < education.onlineCourses.length; i++) {
                     var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("#", education.onlineCourses[i].url);
                     var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
                     var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].completed);
@@ -91,7 +91,7 @@ var education = {
             }
         }
     }
-}
+};
 
 var work = {
     "jobs": [
@@ -109,7 +109,6 @@ var work = {
 
             for (var i = 0; i < work.jobs.length; i++) {
                 var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-                var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
                 var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
                 var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
                 var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
@@ -121,7 +120,7 @@ var work = {
             }
         }
     }
-}
+};
 
 var projects = {
     "projects": [
@@ -176,7 +175,7 @@ var projects = {
             }
         }
     }
-}
+};
 
 //timeline template from https://codyhouse.co/gem/vertical-timeline/
 var timeline = {
@@ -194,16 +193,16 @@ var timeline = {
             $(".cd-timeline-content:last").append(formattedTimelineMore);
             $(".cd-timeline-content:last").append(formattedTimelineDate);
         }
-        
+
         $(window).on('scroll', function() {
             $(".cd-timeline-block").each(function() {
-                if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
-                   $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('animated bounce');
+                if ($(this).offset().top <= $(window).scrollTop() + $(window).height() * 0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden')) {
+                    $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('animated bounce');
                 }
             });
         });
     }
-}
+};
 
 $("#mapDiv").append(googleMap);
 
