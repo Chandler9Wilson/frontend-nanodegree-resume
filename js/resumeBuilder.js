@@ -200,6 +200,15 @@ var timeline = {
             $(".cd-timeline-content:last").append(formattedTimelineMore);
             $(".cd-timeline-content:last").append(formattedTimelineDate);
         }
+        
+        $(window).on('scroll', function() {
+            $(".cd-timeline-block").each(function() {
+                if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+                   // $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('animated infinite bounce');
+                   console.log("hello");
+                }
+            });
+        });
     }
 }
 
