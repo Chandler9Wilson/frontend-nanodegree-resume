@@ -47,7 +47,7 @@ var education = {
             "location": "College Station, Texas, USA",
             "dates": "2010-2015",
             "url": "tamu.edu",
-            "major": "Electrical Engineering",
+            "majors": "Electrical Engineering",
             "degree": "B.sc Electrical Engineering"
         },
     ],
@@ -55,12 +55,12 @@ var education = {
         {
             "title": "Front-End Nanodegree",
             "school": "Udacity",
-            "dates": "2016",
+            "date": "2016",
             "url": "udacity.com"
         }
     ],
     display: function() {
-        if (education.schools.length > 0 || education.onlineCourses.length > 0) {
+        if (education.schools.length || education.onlineCourses.length) {
             for (var i = 0; i < education.schools.length; i++) {
                 $("#education").append(HTMLschoolStart);
 
@@ -128,35 +128,35 @@ var projects = {
             "title": "Frogger Clone",
             "dates": "April 2016",
             "description": "A reskinned frogger clone created in javascript",
-            "images": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "images": ["https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png"],
             "url": "https://github.com/Chandler9Wilson"
         },
         {
             "title": "Neighborhood Map",
             "dates": "May 2016",
             "description": "A map of downtown Austin, with addtional functionality added",
-            "images": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "images": ["https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png"],
             "url": "https://github.com/Chandler9Wilson"
         },
         {
             "title": "Health Tracker",
             "dates": "June 2016",
             "description": "A single page app, that tracks a user's calorie intake along with several other health metrics",
-            "images": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "images": ["https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png"],
             "url": "https://github.com/Chandler9Wilson"
         },
         {
             "title": "Feed Reader Testing",
             "dates": "June 2016",
             "description": "A project to learn and better understand testing in javascript",
-            "images": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "images": ["https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png"],
             "url": "https://github.com/Chandler9Wilson"
         },
         {
             "title": "IoT Home Temperature",
             "dates": "July 2016",
             "description": "A project to accept multiple arduino based temperature sensors and feed them into a central web server, on the MEAN stack",
-            "images": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png",
+            "images": ["https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Frogger_game_arcade.png/220px-Frogger_game_arcade.png"],
             "url": "https://github.com/Chandler9Wilson"
         }
     ],
@@ -173,34 +173,29 @@ var projects = {
                 $(".project-entry:last").append(formattedProjectDates);
                 $(".project-entry:last").append(formattedProjectDescription);
             }
-        }
-    }
-};
+            //timeline template from https://codyhouse.co/gem/vertical-timeline/
+            for (var i = 0; i < projects.projects.length; i++) {
+                $(".cd-container").append(HTMLtimelineStart);
 
-//timeline template from https://codyhouse.co/gem/vertical-timeline/
-var timeline = {
-    display: function() {
-        for (var i = 0; i < projects.projects.length; i++) {
-            $(".cd-container").append(HTMLtimelineStart);
+                var formattedTimelineTitle = HTMLtimelineTitle.replace("%data%", projects.projects[i].title);
+                var formattedTimelineDescription = HTMLtimelineDescription.replace("%data%", projects.projects[i].description);
+                var formattedTimelineMore = HTMLtimelineMore.replace("#", projects.projects[i].url);
+                var formattedTimelineDate = HTMLtimelineDate.replace("%data%", projects.projects[i].dates);
 
-            var formattedTimelineTitle = HTMLtimelineTitle.replace("%data%", projects.projects[i].title);
-            var formattedTimelineDescription = HTMLtimelineDescription.replace("%data%", projects.projects[i].description);
-            var formattedTimelineMore = HTMLtimelineMore.replace("#", projects.projects[i].url);
-            var formattedTimelineDate = HTMLtimelineDate.replace("%data%", projects.projects[i].dates);
+                $(".cd-timeline-content:last").append(formattedTimelineTitle);
+                $(".cd-timeline-content:last").append(formattedTimelineDescription);
+                $(".cd-timeline-content:last").append(formattedTimelineMore);
+                $(".cd-timeline-content:last").append(formattedTimelineDate);
+            }
 
-            $(".cd-timeline-content:last").append(formattedTimelineTitle);
-            $(".cd-timeline-content:last").append(formattedTimelineDescription);
-            $(".cd-timeline-content:last").append(formattedTimelineMore);
-            $(".cd-timeline-content:last").append(formattedTimelineDate);
-        }
-
-        $(window).on('scroll', function() {
-            $(".cd-timeline-block").each(function() {
-                if ($(this).offset().top <= $(window).scrollTop() + $(window).height() * 0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden')) {
-                    $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('animated bounce');
-                }
+            $(window).on('scroll', function() {
+                $(".cd-timeline-block").each(function() {
+                    if ($(this).offset().top <= $(window).scrollTop() + $(window).height() * 0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden')) {
+                        $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('animated bounce');
+                    }
+                });
             });
-        });
+        }
     }
 };
 
@@ -210,5 +205,5 @@ bio.display();
 education.display();
 work.display();
 projects.display();
-timeline.display();
+
 
