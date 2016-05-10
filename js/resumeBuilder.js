@@ -21,12 +21,10 @@ var bio = {
         formattedContactInfo.push(HTMLgithub.replace("%data%", bio.contacts.github));
         formattedContactInfo.push(HTMLlocation.replace("%data%", bio.contacts.location));
 
-        $("#header").prepend(formattedRole);
-        $("#header").prepend(formattedName);
-        $(".subHeader").prepend(formattedBioPic);
-        $(".subHeader").prepend(formattedWelcomeMsg);
+        $("#header").prepend(formattedName, formattedRole);
+        $(".subHeader").prepend(formattedWelcomeMsg, formattedBioPic);
 
-        for (var i in formattedContactInfo) {
+        for (var i = 0; i < formattedContactInfo.length; i++) {
             $("#topContacts").append(formattedContactInfo[i]);
             $("#footerContacts").append(formattedContactInfo[i]);
         }
@@ -47,9 +45,9 @@ var education = {
             "location": "College Station, Texas, USA",
             "dates": "2010-2015",
             "url": "tamu.edu",
-            "majors": "Electrical Engineering",
+            "majors": ["Electrical Engineering"],
             "degree": "B.sc Electrical Engineering"
-        },
+        }
     ],
     "onlineCourses": [
         {
@@ -70,23 +68,20 @@ var education = {
                 var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
                 var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
 
-                $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
-                $(".education-entry:last").append(formattedSchoolDate);
-                $(".education-entry:last").append(formattedSchoolLocation);
-                $(".education-entry:last").append(formattedSchoolMajor);
+                $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree, formattedSchoolDate, formattedSchoolLocation, formattedSchoolMajor)
             }
             if (education.onlineCourses.length > 0) {
-                $(".education-entry:last").append(HTMLonlineClasses);
+                $("#education").append(HTMLonlineClasses);
 
                 for (i = 0; i < education.onlineCourses.length; i++) {
+                    $("#education").append(HTMLschoolStart);
+                    
                     var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("#", education.onlineCourses[i].url);
                     var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
                     var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].completed);
                     var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url).replace("#", education.onlineCourses[i].url);
 
-                    $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
-                    $(".education-entry:last").append(formattedOnlineDates);
-                    $(".education-entry:last").append(formattedOnlineURL);
+                    $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
                 }
             }
         }
@@ -113,10 +108,7 @@ var work = {
                 var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
                 var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
 
-                $(".work-entry:last").append(formattedEmployer);
-                $(".work-entry:last").append(formattedWorkLocation);
-                $(".work-entry:last").append(formattedWorkDates);
-                $(".work-entry:last").append(formattedWorkDescription);
+                $(".work-entry:last").append(formattedEmployer, formattedWorkLocation, formattedWorkDates, formattedWorkDescription);
             }
         }
     }
@@ -169,9 +161,7 @@ var projects = {
                 var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
                 var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
 
-                $(".project-entry:last").append(formattedProjectTitle);
-                $(".project-entry:last").append(formattedProjectDates);
-                $(".project-entry:last").append(formattedProjectDescription);
+                $(".project-entry:last").append(formattedProjectTitle, formattedProjectDates, formattedProjectDescription);
             }
             //timeline template from https://codyhouse.co/gem/vertical-timeline/
             for (var i = 0; i < projects.projects.length; i++) {
@@ -182,10 +172,7 @@ var projects = {
                 var formattedTimelineMore = HTMLtimelineMore.replace("#", projects.projects[i].url);
                 var formattedTimelineDate = HTMLtimelineDate.replace("%data%", projects.projects[i].dates);
 
-                $(".cd-timeline-content:last").append(formattedTimelineTitle);
-                $(".cd-timeline-content:last").append(formattedTimelineDescription);
-                $(".cd-timeline-content:last").append(formattedTimelineMore);
-                $(".cd-timeline-content:last").append(formattedTimelineDate);
+                $(".cd-timeline-content:last").append(formattedTimelineTitle, formattedTimelineDescription, formattedTimelineMore, formattedTimelineDate);
             }
 
             $(window).on('scroll', function() {
